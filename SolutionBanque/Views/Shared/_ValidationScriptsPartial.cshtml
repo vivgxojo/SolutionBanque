@@ -1,0 +1,12 @@
+﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    // Déclaration d'une méthode de validation personnalisée
+    $.validator.addMethod("depotvalide", function (value, element) {
+        return value > 100;
+    }, "Erreur du client : Le depôt doit être positif.");
+
+    // Attachement de cette règle à un champ via un attribut data
+    $.validator.unobtrusive.adapters.addBool("depotvalide");
+</script>
